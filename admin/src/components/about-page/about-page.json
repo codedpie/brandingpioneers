@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_about_page_about_pages",
+  "info": {
+    "displayName": "About Page",
+    "icon": "allergies"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
