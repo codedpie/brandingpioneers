@@ -56,8 +56,9 @@ const Footer = () => {
                         </div>
                         <div className="col-lg-4 d-flex">
                             <div className='ms-lg-auto'>
-                                <div className='txt-3'>Email:&nbsp;<a href='mailto:stact.team@email.com' className='contact-link'>stact.team@email.com</a></div>
-                                <div className='txt-3 mb-20'>Inquiries:&nbsp;<a href='tel:+911234567890' className='contact-link'>+91 123 456 7890</a></div>
+                                <div className='txt-3'>Email:&nbsp;<a href='mailto:brandingpioneers@gmail.com' className='contact-link'>brandingpioneers@gmail.com</a></div>
+                                <div className='txt-3'>Email:&nbsp;<a href='mailto:official@brandingpioneers.com' className='contact-link'>official@brandingpioneers.com</a></div>
+                                <div className='txt-3 mb-20'>Inquiries:&nbsp;<a href='tel:+918377009395' className='contact-link'>+91 8377009395</a></div>
                                 <div className="mb-8 txt-2 color-1 fw-600">Follow us on</div>
                                 <div className="social-link">
                                     <a href='/'>
@@ -86,7 +87,7 @@ const Footer = () => {
                     </div>
                     <div className="row">
                         <div className="col-12">
-                            <div className='txt-3 text-center footer-bottom'>Copyright © 2021 Stact Inc.</div>
+                            <div className='txt-3 text-center footer-bottom'>Copyright © {new Date().getFullYear()} Branding Pioneers.</div>
                         </div>
                     </div>
                 </div>

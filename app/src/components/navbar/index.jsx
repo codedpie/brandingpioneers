@@ -32,18 +32,22 @@ const NavBar = ({data}) => {
     },[])   
 
     const NavBarLinks = [
+        // {
+        //     dropDown: true,
+        //     title: 'Home',
+        //     links: [
+        //         {title: 'Landing 1', href: '/landing-1'},
+        //         {title: 'Landing 2', href: '/landing-2'},
+        //         {title: 'Landing 3', href: '/landing-3'},
+        //         {title: 'App landing', href: '/app-landing'},
+        //         {title: 'Saas landing', href: '/saas-landing'},
+        //         {title: 'Personal portfolio', href: '/personal-portfolio'},
+        //         {title: 'Consulting', href: '/consulting'},
+        //     ]
+        // },
         {
-            dropDown: true,
             title: 'Home',
-            links: [
-                {title: 'Landing 1', href: '/landing-1'},
-                {title: 'Landing 2', href: '/landing-2'},
-                {title: 'Landing 3', href: '/landing-3'},
-                {title: 'App landing', href: '/app-landing'},
-                {title: 'Saas landing', href: '/saas-landing'},
-                {title: 'Personal portfolio', href: '/personal-portfolio'},
-                {title: 'Consulting', href: '/consulting'},
-            ]
+            href:'/'
         },
         {
             dropDown: true,
