@@ -4,9 +4,9 @@ import './style.scss'
 import Logo from '../../logo.svg'
 import { useEffect } from "react"
 
-const NavBar = ({data}) => {
+const NavBar = ({ data }) => {
 
-    useEffect(()=>{
+    useEffect(() => {
 
         // const changeBackground = () => {
         //     // console.log(window.scrollY)
@@ -20,67 +20,71 @@ const NavBar = ({data}) => {
 
         const NavLink = document.querySelectorAll('.stact-nav-link')
         const NavBarCollapse = document.querySelector('.navbar-collapse')
-        
-        NavLink.forEach(e=>{
+
+        NavLink.forEach(e => {
             e.onclick = () => {
-                if(NavBarCollapse.classList.contains('show')){
+                if (NavBarCollapse.classList.contains('show')) {
                     document.querySelector('.navbar-toggler').click()
                 }
             }
         })
 
-    },[])   
+    }, [])
 
     const NavBarLinks = [
-        // {
-        //     dropDown: true,
-        //     title: 'Home',
-        //     links: [
-        //         {title: 'Landing 1', href: '/landing-1'},
-        //         {title: 'Landing 2', href: '/landing-2'},
-        //         {title: 'Landing 3', href: '/landing-3'},
-        //         {title: 'App landing', href: '/app-landing'},
-        //         {title: 'Saas landing', href: '/saas-landing'},
-        //         {title: 'Personal portfolio', href: '/personal-portfolio'},
-        //         {title: 'Consulting', href: '/consulting'},
-        //     ]
-        // },
         {
             title: 'Home',
-            href:'/'
+            href: '/'
         },
         {
             dropDown: true,
-            title: 'Pages',
+            title: 'About',
+            href: '/about',
             links: [
-                {title: 'About', href: '/about'},
-                {title: 'Contact', href: '/contact'},
-                {title: 'Pricing', href: '/pricing'},
-                {title: 'FAQs', href: '/faqs'},
-                {title: 'Projects', href: '/projects'},
-                {title: 'Project detail', href: '/project-detail'},
-                {title: 'Blog', href: '/blog'},
-                {title: 'Blog article', href: '/blog-article'},
-                {title: 'Services', href: '/services'},
-                {title: '404', href: '/not-found'},
-                
+                { title: 'Who we are', href: '/about' },
+                { title: 'Why choose us', href: '/about' },
+                { title: 'Testimonials', href: '/about' }
             ]
         },
         {
-            title:'Services',
-            href:'/services'
+            dropDown: true,
+            title: 'Our Speciality',
+            href: '/our-speciality',
+            links: [
+                { title: 'Healthcare', href: '/healthcare' },
+                { title: 'Education ', href: '/education' },
+                { title: 'Fitness', href: '/fitness' },
+                { title: 'B2B', href: '/b2b' },
+            ]
         },
         {
-            title:'About',
-            href:'/about'
+            dropDown: true,
+            title: 'Services',
+            href: '/services',
+            links: [
+                { title: 'Medical Digital Marketing', href: '/' },
+                { title: 'Website Services', href: '/' },
+                { title: 'Marketing Strategies', href: '/' },
+                { title: 'Content', href: '/content' },
+            ]
         },
         {
-            title:'Blog',
-            href:'/blog'
+            dropDown: true,
+            title: 'Our Work',
+            href: '/our-work',
+            links: [
+                { title: 'Websites', href: '/websites' },
+                { title: 'Case Studies', href: '/case-studies' },
+                { title: 'Projects', href: '/projects' }
+            ]
         },
         {
-            title:'Contact',
-            href:'/contact'
+            title: 'Blog',
+            href: '/blog'
+        },
+        {
+            title: 'Pages',
+            href: '/pages'
         }
     ]
 
@@ -97,56 +101,57 @@ const NavBar = ({data}) => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <div className="navbar-nav mx-auto">
                             {
-                                data?
-                                data.map((e,i)=>{
-                                    if(e.dropDown){
-                                        return(
-                                            <div className="dropdown" key={i}>
-                                                <div className="nav-link dropdown-toggle" >
-                                                    {e.title}
+                                data ?
+                                    data.map((e, i) => {
+                                        if (e.dropDown) {
+                                            return (
+                                                <div className="dropdown" key={i}>
+                                                    <div className="nav-link dropdown-toggle" >
+                                                        {e.title}
+                                                    </div>
+                                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        {e.links.map((e2, j) =>
+                                                            <li key={j}><NavLink className={({ isActive }) => isActive ? 'dropdown-item stact-nav-link' : 'dropdown-item stact-nav-link'} to={e2.href}>{e2.title}</NavLink></li>
+                                                        )}
+                                                    </ul>
                                                 </div>
-                                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    {e.links.map((e2,j)=>
-                                                        <li  key={j}><NavLink className={({ isActive }) => isActive ? 'dropdown-item stact-nav-link' : 'dropdown-item stact-nav-link'} to={e2.href}>{e2.title}</NavLink></li>
-                                                    )}
-                                                </ul>
-                                            </div>
-                                        )
-                                    }else if(e.anchor){
-                                        return(
-                                            <a href={e.href} className="nav-link stact-nav-link anchor" key={i}>{e.title}</a>                                            
-                                        )
-                                    }else{
-                                        return(
-                                            <NavLink to={e.href} className="nav-link stact-nav-link" key={i}>{e.title}</NavLink>                                            
-                                        )
-                                    }
-                                })
-                                :
-                                NavBarLinks.map((e,i)=>{
-                                    if(e.dropDown){
-                                        return(
-                                            <div className="dropdown" key={i}>
-                                                <div className="nav-link dropdown-toggle" >
-                                                    {e.title}
+                                            )
+                                        } else if (e.anchor) {
+                                            return (
+                                                <a href={e.href} className="nav-link stact-nav-link anchor" key={i}>{e.title}</a>
+                                            )
+                                        } else {
+                                            return (
+                                                <NavLink to={e.href} className="nav-link stact-nav-link" key={i}>{e.title}</NavLink>
+                                            )
+                                        }
+                                    })
+                                    :
+                                    NavBarLinks.map((e, i) => {
+                                        if (e.dropDown) {
+                                            return (
+                                                <div className="dropdown" key={i}>
+                                                    {/* <a href={e.links} className="nav-link dropdown-toggle" >
+                                                        {e.title}
+                                                    </a> */}
+                                                    <NavLink to={e.href} className="nav-link dropdown-toggle" key={i}>{e.title}</NavLink>
+                                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        {e.links.map((e2, j) =>
+                                                            <li key={j}><NavLink className={({ isActive }) => isActive ? 'dropdown-item stact-nav-link' : 'dropdown-item stact-nav-link'} to={e2.href}>{e2.title}</NavLink></li>
+                                                        )}
+                                                    </ul>
                                                 </div>
-                                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    {e.links.map((e2,j)=>
-                                                        <li  key={j}><NavLink className={({ isActive }) => isActive ? 'dropdown-item stact-nav-link' : 'dropdown-item stact-nav-link'} to={e2.href}>{e2.title}</NavLink></li>
-                                                    )}
-                                                </ul>
-                                            </div>
-                                        )
-                                    }else if(e.anchor){
-                                        return(
-                                            <a href={e.href} className="nav-link stact-nav-link anchor" key={i}>{e.title}</a>                                            
-                                        )
-                                    }else{
-                                        return(
-                                            <NavLink to={e.href} className="nav-link stact-nav-link" key={i}>{e.title}</NavLink>                                            
-                                        )
-                                    }
-                                })
+                                            )
+                                        } else if (e.anchor) {
+                                            return (
+                                                <a href={e.href} className="nav-link stact-nav-link anchor" key={i}>{e.title}</a>
+                                            )
+                                        } else {
+                                            return (
+                                                <NavLink to={e.href} className="nav-link stact-nav-link" key={i}>{e.title}</NavLink>
+                                            )
+                                        }
+                                    })
                             }
                         </div>
                     </Navbar.Collapse>
@@ -156,6 +161,5 @@ const NavBar = ({data}) => {
         </>
     )
 }
-
 
 export default NavBar

@@ -12,7 +12,7 @@ const Consulting = () => {
     return(
         <>
             <Helmet>
-                <title>Stact - Consulting</title>
+                <title>Branding Pioneers</title>
             </Helmet>
             <NavBar/>
             <div className="consulting">
@@ -59,8 +59,8 @@ const Hero = () => {
                 <div className="container">
                     <div className="row gy-5">
                         <div className="col-lg-6 align-self-center">
-                            <h1>Solutions that make our clients' lives simpler.</h1>
-                            <p className='txt-1 mt-16 me-lg-5'>Become a part of this digital revolution today with the best in class solutions of stact.</p>
+                            <h1>Attract more patients and boost your revenue with our healthcare digital marketing solutions.</h1>
+                            <p className='txt-1 mt-16 me-lg-5'>Experience exceptional results with us.</p>
                             <form className='mt-20 me-lg-5'>
                                 <div className="cta-form d-flex align-items-center justify-content-between">
                                     <div className="cta-input">
@@ -125,8 +125,7 @@ const Services = () => {
                             services.map((service,i) => 
                                 <div className="col-lg-4 col-xl-3 col-md-6 col-sm-6 gx-5 gy-4"  key={i}>
                                     <ServiceCards data={service} src="consulting"/>
-                                </div>                    
-                            )
+                                </div>)
                         }
                     </div>
                 </div>

@@ -366,7 +366,7 @@ const Blog = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <BlogCards data={blog_data} src='landing3'/>
+                        {/* <BlogCards data={blog_data} src='landing3'/> */}
                     </div>
                 </div>
             </section>

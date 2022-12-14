@@ -19,6 +19,7 @@ import ProjectDetails from './pages/projectDetails';
 import Projects from './pages/projects';
 import SaasLanding from './pages/saasLanding';
 import Services from './pages/services';
+import InternalPages from './pages/internal-pages'
 
 
 function Stact() {
@@ -33,6 +34,7 @@ function Stact() {
       </Helmet>
       <div className="stact-container">
         <Router>
+        {/* <Router basename={'/reactapp'}> */}
           <ScrollToTop/>
             <Routes>
               <Route path='/' element={<Consulting />} />
@@ -52,6 +54,7 @@ function Stact() {
               <Route path='/blog' element={<Blog/>} />
               <Route path='/blog/:slug' element={<BlogArticle/>} />
               <Route path='/services' element={<Services/>} />
+              <Route path='/pages' element={<InternalPages/>} />
               <Route path='*' element={<NotFound/>} />
             </Routes>
         </Router>
