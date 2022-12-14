@@ -41,9 +41,9 @@ const NavBar = ({ data }) => {
             title: 'About',
             href: '/about',
             links: [
-                { title: 'Who we are', href: '/about' },
-                { title: 'Why choose us', href: '/about' },
-                { title: 'Testimonials', href: '/about' }
+                { title: 'Who we are', href: '/who-we-are' },
+                { title: 'Why choose us', href: '/why-choose-us' },
+                { title: 'Testimonials', href: '/testimonials' }
             ]
         },
         {
@@ -62,9 +62,9 @@ const NavBar = ({ data }) => {
             title: 'Services',
             href: '/services',
             links: [
-                { title: 'Medical Digital Marketing', href: '/' },
-                { title: 'Website Services', href: '/' },
-                { title: 'Marketing Strategies', href: '/' },
+                { title: 'Medical Digital Marketing', href: '/medical-digital-marketing' },
+                { title: 'Website Services', href: '/website-services' },
+                { title: 'Marketing Strategies', href: '/marketing-strategies' },
                 { title: 'Content', href: '/content' },
             ]
         },
@@ -111,7 +111,8 @@ const NavBar = ({ data }) => {
                                                     </div>
                                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                         {e.links.map((e2, j) =>
-                                                            <li key={j}><NavLink className={({ isActive }) => isActive ? 'dropdown-item stact-nav-link' : 'dropdown-item stact-nav-link'} to={e2.href}>{e2.title}</NavLink></li>
+                                                            <li key={j}><NavLink className={({ isActive }) => isActive ? 'dropdown-item stact-nav-link' : 'dropdown-item stact-nav-link'} to={e2.href}>{e2.title}</NavLink>
+                                                            </li>
                                                         )}
                                                     </ul>
                                                 </div>
