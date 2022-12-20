@@ -20,13 +20,14 @@ import Projects from './pages/projects';
 import SaasLanding from './pages/saasLanding';
 import Services from './pages/services';
 import InternalPages from './pages/internal-pages'
+import SubPages from './pages/aboutPages';
 
 
 function Stact() {
   return (
     <>
       <Helmet>
-        <title>Stact - React Landing Template</title>    
+        <title>Stact - React Landing Template</title>
         <meta
           name="description"
           content="Multipurpose agency and potfolio react template"
@@ -34,29 +35,30 @@ function Stact() {
       </Helmet>
       <div className="stact-container">
         <Router>
-        {/* <Router basename={'/reactapp'}> */}
-          <ScrollToTop/>
-            <Routes>
-              <Route path='/' element={<Consulting />} />
-              <Route path='/landing-1' element={<Landing1/>} />
-              <Route path='/landing-2' element={<Landing2/>} />
-              <Route path='/landing-3' element={<Landing3/>} />
-              <Route path='/app-landing' element={<AppLanding/>} />
-              <Route path='/saas-landing' element={<SaasLanding/>} />
-              <Route path='/personal-portfolio' element={<PersonalPortfolio/>} />
-              <Route path='/consulting' element={<Home/>} />
-              <Route path='/about' element={<About/>} />
-              <Route path='/contact' element={<Contact/>} />
-              <Route path='/pricing' element={<Pricing/>} />
-              <Route path='/faqs' element={<FAQs/>} />
-              <Route path='/projects' element={<Projects/>} />
-              <Route path='/project-detail' element={<ProjectDetails/>} />
-              <Route path='/blog' element={<Blog/>} />
-              <Route path='/blog/:slug' element={<BlogArticle/>} />
-              <Route path='/services' element={<Services/>} />
-              <Route path='/pages' element={<InternalPages/>} />
-              <Route path='*' element={<NotFound/>} />
-            </Routes>
+          {/* <Router basename={'/reactapp'}> */}
+          <ScrollToTop />
+          <Routes>
+            <Route path='/' element={<Consulting />} />
+            <Route path='/landing-1' element={<Landing1 />} />
+            <Route path='/landing-2' element={<Landing2 />} />
+            <Route path='/landing-3' element={<Landing3 />} />
+            <Route path='/app-landing' element={<AppLanding />} />
+            <Route path='/saas-landing' element={<SaasLanding />} />
+            <Route path='/personal-portfolio' element={<PersonalPortfolio />} />
+            <Route path='/consulting' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/pricing' element={<Pricing />} />
+            <Route path='/faqs' element={<FAQs />} />
+            <Route path='/projects' element={<Projects />} />
+            <Route path='/project-detail' element={<ProjectDetails />} />
+            <Route path='/blog' element={<Blog />} />
+            <Route path='/blog/:slug' element={<BlogArticle />} />
+            <Route path='/services' element={<Services />} />
+            <Route path='/:mainPage/:slug' element={<SubPages />} />
+            <Route path='/pages' element={<InternalPages />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
         </Router>
       </div>
     </>
@@ -64,7 +66,7 @@ function Stact() {
 }
 
 const ScrollToTop = () => {
-  const {pathname} = useLocation()
+  const { pathname } = useLocation()
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);

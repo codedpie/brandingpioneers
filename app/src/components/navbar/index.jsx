@@ -41,9 +41,9 @@ const NavBar = ({ data }) => {
             title: 'About',
             href: '/about',
             links: [
-                { title: 'Who we are', href: '/who-we-are' },
-                { title: 'Why choose us', href: '/why-choose-us' },
-                { title: 'Testimonials', href: '/testimonials' }
+                { title: 'Who we are', href: '/about/who-we-are' },
+                { title: 'Why choose us', href: '/about/why-choose-us' },
+                { title: 'Testimonials', href: '/about/testimonials' }
             ]
         },
         {
@@ -51,10 +51,10 @@ const NavBar = ({ data }) => {
             title: 'Our Speciality',
             href: '/our-speciality',
             links: [
-                { title: 'Healthcare', href: '/healthcare' },
-                { title: 'Education ', href: '/education' },
-                { title: 'Fitness', href: '/fitness' },
-                { title: 'B2B', href: '/b2b' },
+                { title: 'Healthcare', href: '/our-speciality/healthcare' },
+                { title: 'Education ', href: '/our-speciality/education' },
+                { title: 'Fitness', href: '/our-speciality/fitness' },
+                { title: 'B2B', href: '/our-speciality/b2b' },
             ]
         },
         {
@@ -62,10 +62,10 @@ const NavBar = ({ data }) => {
             title: 'Services',
             href: '/services',
             links: [
-                { title: 'Medical Digital Marketing', href: '/medical-digital-marketing' },
-                { title: 'Website Services', href: '/website-services' },
-                { title: 'Marketing Strategies', href: '/marketing-strategies' },
-                { title: 'Content', href: '/content' },
+                { title: 'Medical Digital Marketing', href: '/services/medical-digital-marketing' },
+                { title: 'Website Services', href: '/services/website-services' },
+                { title: 'Marketing Strategies', href: '/services/marketing-strategies' },
+                { title: 'Content', href: '/services/content' },
             ]
         },
         {
@@ -73,9 +73,9 @@ const NavBar = ({ data }) => {
             title: 'Our Work',
             href: '/our-work',
             links: [
-                { title: 'Websites', href: '/websites' },
-                { title: 'Case Studies', href: '/case-studies' },
-                { title: 'Projects', href: '/projects' }
+                { title: 'Websites', href: '/our-work/websites' },
+                { title: 'Case Studies', href: '/our-work/case-studies' },
+                { title: 'Projects', href: '/our-work/projects' }
             ]
         },
         {

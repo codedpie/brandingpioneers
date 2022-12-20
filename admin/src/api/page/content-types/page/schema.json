@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page"
+    "displayName": "Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,9 +17,26 @@
       "required": true,
       "unique": true
     },
-    "Content": {
-      "type": "richtext",
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
       "required": true
+    },
+    "FeaturedImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "mainPage": {
+      "type": "string",
+      "required": true,
+      "unique": false
     }
   }
 }

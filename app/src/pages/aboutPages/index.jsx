@@ -1,26 +1,26 @@
 import Helmet from 'react-helmet'
-import Footer from '../../components/footer'
-import './style.scss'
-import NavBar from "../../components/navbar"
 import ContactSection from '../../components/contactSection'
+import Footer from '../../components/footer'
+import NavBar from "../../components/navbar"
+import './style.scss'
 import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 
+const SubPages = () => {
 
-const BlogArticle = () => {
+    const { slug, mainPage } = useParams()
 
-    const { slug } = useParams()
-
-    const { loading, data, error } = useFetch('http://localhost:1337/api/articles?populate=*')
+    const { loading, data, error } = useFetch('http://localhost:1337/api/pages?populate=*')
     if (loading) return console.log('loading');
     if (error) return console.log('error');
 
-    const blog_data = data.data;  
+    const blog_data = data.data;
 
     let article = {}
     if (article) {
-        let arr = blog_data.filter(e => e.attributes.Slug === slug)
+        let mainArr = blog_data.filter(x => x.attributes.mainPage === mainPage)
+        let arr = mainArr.filter(e => e.attributes.slug === slug)
         article = arr[0]
     } else {
         article = {}
@@ -31,12 +31,12 @@ const BlogArticle = () => {
     return (
         <>
             <Helmet>
-                <title>{myPost.Title}</title>
+                <title>{myPost.title}</title>
             </Helmet>
             <NavBar />
-            <div className='blog-article-container'>
+            <div className="project-detail-container">
                 <Hero data={myPost} />
-                <BlogArticleSection data={myPost} />
+                <CaseStudy data={myPost} />
                 <Contact />
                 <Footer />
             </div>
@@ -51,9 +51,8 @@ const Hero = ({ data }) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-7">
-                            <div className="section-tag mb-8">{data.category.data.attributes.Category}</div>
-                            <h1 className='display-1'>{data.Title}</h1>
-                            <div className='txt-3'>Published by <span className='fw-500 color-1'>Branding Pioneers</span> on <span className='fw-500 color-1'>{new Date(data.DateAndTime).toDateString().slice(4)}</span></div>
+                            <div className="section-tag mb-8">{data.mainPage}</div>
+                            <h1 className='display-1'>{data.title}</h1>
                         </div>
                     </div>
                 </div>
@@ -62,20 +61,18 @@ const Hero = ({ data }) => {
     )
 }
 
-const BlogArticleSection = ({data}) => {
+const CaseStudy = ({ data }) => {
     return (
         <>
-            <section className='section-global blog-article'>
+            <section className='section-global case-study'>
                 <div className="container container-2">
                     <div className="row">
-                        <div className="col-12 mb-20">
-                            <img src={`http://localhost:1337${data.FeaturedImage.data.attributes.url}`} className="img-fluid mb-20" alt="CaseStudy" />
+                        <div className="col-12 text-center mb-20">
+                            <img src={`http://localhost:1337${data.FeaturedImage.data.attributes.url}`} className="img-fluid mb-20 mainImage" alt={data.title} />
                         </div>
                         <div className="col-12">
-                            <div className="blog-article-section">
-                                <ReactMarkdown>
-                                    {data.Content}
-                                </ReactMarkdown>
+                            <div className="case-study-section">
+                                <ReactMarkdown>{data.content}</ReactMarkdown>
                             </div>
                         </div>
                     </div>
@@ -102,4 +99,5 @@ const Contact = () => {
     )
 }
 
-export default BlogArticle
+
+export default SubPages
